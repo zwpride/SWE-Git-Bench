@@ -1,0 +1,7 @@
+# Minimum runtime deps for the SWE-Git-Bench evaluation harness.
+# Pin majors only; a clean conda env at Python 3.11+ is recommended.
+openai>=1.0
+httpx>=0.27
+tqdm>=4.66
+sglang>=0.4
+vllm>=0.6
