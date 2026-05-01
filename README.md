@@ -31,7 +31,8 @@ github_swegitbench/
 
 See `REPRODUCIBILITY.md` for the scoring and analysis commands. The dataset
 itself (conflict files, ground-truth resolutions, and prediction matrix) is
-served from the companion Harvard Dataverse anonymized preview link.
+served from the companion Harvard Dataverse anonymized preview:
+https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
 
 ## License
 

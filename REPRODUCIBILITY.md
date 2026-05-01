@@ -2,9 +2,14 @@
 
 ## 1. Get the dataset
 
-Download `SWE-Git-Bench-conflicts-v1.0.tar.gz` from the Harvard Dataverse
-anonymized preview link (see paper Appendix `app:assets`). Unpack into
-`./data/`.
+Download `SWE-Git-Bench-conflicts-v1.0.tar.gz`,
+`SWE-Git-Bench-predictions-v1.0.tar.gz`, and
+`SWE-Git-Bench-analysis-v1.0.tar.gz` from the Harvard Dataverse anonymized
+preview link:
+
+https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
+
+Unpack into `./data/`.
 
 ## 2. Score submitted predictions
 
