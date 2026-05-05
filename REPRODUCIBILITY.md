@@ -7,7 +7,7 @@ Download `SWE-Git-Bench-conflicts-v1.0.tar.gz`,
 `SWE-Git-Bench-analysis-v1.0.tar.gz` from the Harvard Dataverse anonymized
 preview link:
 
-https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
+https://dataverse.harvard.edu/previewurl.xhtml?token=cbf161fa-dc18-45d4-9678-5085aafe5092
 
 Unpack into `./data/`.
 
