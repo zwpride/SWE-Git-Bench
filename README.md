@@ -33,7 +33,7 @@ See `REPRODUCIBILITY.md` for the scoring and analysis commands. The dataset
 itself (canonical conflict JSONL files, ground-truth resolutions, prediction
 matrix, analysis archive, Croissant core + RAI metadata, and the per-instance
 manifest) is served from the companion Harvard Dataverse anonymized preview:
-https://dataverse.harvard.edu/previewurl.xhtml?token=cbf161fa-dc18-45d4-9678-5085aafe5092
+https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
 
 ## License
 
