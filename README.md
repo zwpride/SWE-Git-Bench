@@ -1,16 +1,6 @@
-# SWE-Git-Bench — Anonymous Code Mirror
+# SWE-Git-Bench
 
-This directory is the anonymized source-code mirror for the
-**SWE-Git-Bench** benchmark and evaluation harness, prepared for
-NeurIPS 2026 Datasets & Benchmarks double-blind review.
-
-It is the input to `../push_code.sh`, which:
-
-1. PII-audits this tree (regex match against author names / affiliations).
-2. Re-initializes a fresh git history (no upstream commit metadata).
-3. Pushes to a GitHub repository owned by an anonymous account.
-4. Forwards the URL to anonymous.4open.science for serving the
-   review-time read-only mirror.
+Public code release for the **SWE-Git-Bench** benchmark scoring and analysis harness.
 
 ## Contents
 
@@ -32,8 +22,8 @@ github_swegitbench/
 See `REPRODUCIBILITY.md` for the scoring and analysis commands. The dataset
 itself (canonical conflict JSONL files, ground-truth resolutions, prediction
 matrix, analysis archive, Croissant core + RAI metadata, and the per-instance
-manifest) is served from the companion Harvard Dataverse anonymized preview:
-https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
+manifest) is served from the companion Harvard Dataverse record:
+https://doi.org/10.7910/DVN/FSFEZX
 
 ## License
 

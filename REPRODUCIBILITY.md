@@ -4,10 +4,9 @@
 
 Download `SWE-Git-Bench-conflicts-v1.0.tar.gz`,
 `SWE-Git-Bench-predictions-v1.0.tar.gz`, and
-`SWE-Git-Bench-analysis-v1.0.tar.gz` from the Harvard Dataverse anonymized
-preview link:
+`SWE-Git-Bench-analysis-v1.0.tar.gz` from the Harvard Dataverse record:
 
-https://dataverse.harvard.edu/previewurl.xhtml?token=f631d3ee-7070-4f6d-abc7-6f8b747bfc78
+https://doi.org/10.7910/DVN/FSFEZX
 
 Unpack into `./data/`.
 
@@ -30,40 +29,21 @@ python score.py \
 The script reports exact match (EM), edit similarity (ES), line similarity
 (LS), and block accuracy where applicable.
 
-## 3. Serve open-weight models
+## 3. Generate new predictions
 
-For each open-weight model (TP$\le$8 on A100/H100 nodes):
+Use the prompt builders in `prompts/templates.py` with any model endpoint, then
+write one JSON object per line with these fields:
 
-```bash
-python -m sglang.launch_server \
-    --model-path <model> \
-    --tp <degree> \
-    --enable-metrics \
-    --trust-remote-code \
-    --port <port>
+```json
+{"dataset":"lite","model_name":"example-model","conflict_id":"...","file_path":"...","raw_prediction":"..."}
 ```
 
-Each model exposes an OpenAI-compatible endpoint that the harness consumes.
-Closed systems use their own vendor endpoints; the harness reads
-`OPENAI_API_KEY`-style env vars per provider.
+The original sweep used temperature 0, a 30-minute per-call budget, and up to
+two retries. Exact internal serving endpoints are not part of the release; the
+prompt builders and scoring code reproduce the public protocol independently
+of a specific serving stack.
 
-## 4. Run a new sweep
-
-```bash
-./run_eval_task.sh \
-    --datasets "lite Verified Multilingual Multimodal" \
-    --formats  "whole_file conflict_block" \
-    --temperature 0 \
-    --budget-sec 1800 \
-    --max-retries 2
-```
-
-The original sweep writes JSONL files with predictions and EM/ES/LS/BA scores.
-Exact internal serving endpoints are intentionally omitted from the anonymous
-mirror; the prompts and scoring code are sufficient to reproduce the protocol
-with any OpenAI-compatible model endpoint.
-
-## 5. Recompute statistical analyses
+## 4. Recompute statistical analyses
 
 ```bash
 python analysis/bootstrap_ci.py
@@ -74,9 +54,9 @@ python analysis/irr_kappa.py \
 
 ## Hardware notes
 
-- Models $\le$14B run on a single A100 80GB.
+- Models $\le$14B run on a single A800 80GB.
 - DeepSeek-V3, R1, Qwen3-235B-A22B, Qwen3-Coder-480B-A35B, GLM-5,
-  Kimi, MiniMax run TP=4 or TP=8 on one or two H100 nodes.
+  Kimi, MiniMax run TP=4 or TP=8 across A800 nodes.
 - Closed APIs (Claude-Sonnet-4.6, Gemini-3-Pro, GPT-5.4) consume
   approximately 20–40M input tokens and 4–8M output tokens in aggregate.
 
